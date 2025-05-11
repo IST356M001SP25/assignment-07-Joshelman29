@@ -1,7 +1,7 @@
 # Reflection
 
-Student Name:  name
-Sudent Email:  email
+Student Name:  josh elman
+Sudent Email:  jdelman@syr.edu
 
 ## Instructions
 
@@ -22,4 +22,6 @@ Examples:
 **Best Reflection** "I learned when to use while vs for loops. While loops are for sentiel-controlled values (waiting for a condition to occur), vs for loops are for iterating over collections of fixed values."
 
 `--- Reflection Below This Line ---`
+
+In menuitem.py, we defined a MenuItem dataclass to represent individual menu entries with fields for category, name, price, and description. In menuitemextractor.py, we transformed raw scraped text into usable data by implementing functions to clean price strings, filter out irrelevant or redundant lines from the scraped text, and construct MenuItem objects from the cleaned content. Finally, in tully_scraper.py, we used Playwright to scrape the archived Tully’s Good Times menu webpage, extract menu section titles and item details using CSS selectors, convert the scraped data into MenuItem objects, and write the complete dataset into a structured CSV file for further use. One test failed because extracted data has 108 rows and expected rows are 111. Code complexity is very high in this assignment.
 
