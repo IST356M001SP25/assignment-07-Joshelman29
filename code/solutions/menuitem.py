@@ -1,7 +1,7 @@
 from dataclasses import dataclass, asdict
 
 @dataclass
-class MenuItem:
+class FoodItem:
     # these are built-in properties
     category: str
     name: str
@@ -14,13 +14,13 @@ class MenuItem:
 
     @staticmethod
     def from_dict(data):
-        return MenuItem(**data)
+        return FoodItem(**data)
     
 if __name__=='__main__':
     # example of howto use the dataclass
 
-    # create a new MenuItem    
-    mozz = MenuItem(name = "Mozzarella Sticks", 
+    # create a new FoodItem    
+    mozz = FoodItem(name = "Mozzarella Sticks", 
                     price = 8.99, 
                     category="Apps", 
                     description="Fried cheese sticks served with marinara sauce.")
@@ -32,7 +32,7 @@ if __name__=='__main__':
     print(mozz.to_dict())
 
     # create a new MenuItem from a dictionary
-    burger = MenuItem.from_dict({"name": "Burger", 
+    burger = FoodItem.from_dict({"name": "Burger", 
                                  "price": 9.99, 
                                  "description": "A delicious burger.", 
                                  "category": "Entrees"})
