@@ -1,40 +1,41 @@
 from dataclasses import dataclass, asdict
 
 @dataclass
-class MenuItem:
-    # these are built-in properties
-    category: str
-    name: str
-    price: float
-    description: str
+class FoodItem:
+    """Class representing a food item on a menu"""
+    # Core attributes of each menu item
+    section: str  
+    item_name: str  
+    cost: float  
+    details: str 
 
-    # convert to a dictionary
-    def to_dict(self):
+    # converting instance to dictionary
+    def convert_to_dict(self):
+        """Serialize the food item to a dictionary"""
         return asdict(self)
 
-    @staticmethod
-    def from_dict(data):
-        return MenuItem(**data)
+    @classmethod
+    def create_from_dict(cls, item_data):
+        """Create a FoodItem from dictionary data"""
+        return cls(**item_data)
     
-if __name__=='__main__':
-    # example of howto use the dataclass
 
-    # create a new MenuItem    
-    mozz = MenuItem(name = "Mozzarella Sticks", 
-                    price = 8.99, 
-                    category="Apps", 
-                    description="Fried cheese sticks served with marinara sauce.")
+    
+# creating a new food item instance
+cheese_app = FoodItem(item_name="Mozzarella Sticks", cost=8.99, section="Starters",  
+        details="Fried cheese sticks served with marinara sauce."  )
 
-    # can assign a new category
-    mozz.category = "Appetizers"
-    print(mozz)
-    # convert back to a dictionary
-    print(mozz.to_dict())
+# modifying an attribute
+cheese_app.section = "Appetizers"
+print(cheese_app)
+    
+# converting to dictionary
+print(cheese_app.convert_to_dict())
 
-    # create a new MenuItem from a dictionary
-    burger = MenuItem.from_dict({"name": "Burger", 
-                                 "price": 9.99, 
-                                 "description": "A delicious burger.", 
-                                 "category": "Entrees"})
-    print(burger)
-
+    # creating from dictionary
+main_course = FoodItem.create_from_dict({
+        "item_name": "Burger", 
+        "cost": 9.99, 
+        "details": "A delicious burger.", 
+        "section": "Main Courses"})
+print(main_course)
